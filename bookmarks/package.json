@@ -1,0 +1,67 @@
+{
+    "name": "phf-bookmarks",
+    "description": "Share the page with the Psychology Health Forums",
+    "version": "0.0.1",
+    "homepage": "https://phf.net.au",
+    "author": "ENTER YOUR NAME HERE",
+    "repository": {
+        "type": "git",
+        "url": "ENTER GIT REPO URL"
+    },
+    "scripts": {
+        "start": "xt-build -e dev -w",
+        "start:firefox": "xt-build -e dev -p firefox -w",
+        "build": "xt-build -e prod",
+        "build:firefox": "xt-build -e prod -p firefox",
+        "clean": "xt-clean",
+        "docs": "xt-docs",
+        "test": "xt-test",
+        "coverage": "nyc --reporter=lcov npm run test",
+        "sync": "xt-sync"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
+    },
+    "eslintIgnore": [
+        "test/**/*"
+    ],
+    "devDependencies": {
+        "extension-cli": "^1.2.4"
+    },
+    "xtdocs": {
+        "source": {
+            "include": [
+                "README.md",
+                "src"
+            ]
+        }
+    },
+    "xtbuild": {
+        "js_bundles": [
+            {
+                "name": "background",
+                "src": [
+                    "./src/index.js"
+                ]
+            },
+            {
+                "name": "popup",
+                "src": "./src/popup.js"
+            },
+            {
+                "name": "content",
+                "src": "./src/content.js"
+            },
+            {
+                "name": "time_picker_dialog",
+                "src": "./src/time_picker_dialog.js"
+            }
+        ]
+    },
+    "dependencies": {
+        "metadata-scraper": "^0.2.60",
+        "metascraper": "^5.30.4"
+    }
+}
